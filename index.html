@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdevraga | Professional Writing & Content Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-black: #08080a;
+            --bg-card: #121216;
+            --bg-card-hover: #1a1a20;
+            --red-primary: #ff1e27;
+            --red-glow: rgba(255, 30, 39, 0.35);
+            --red-dark: #8b0000;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0b0;
+            --border-color: #22222a;
+            --border-red: rgba(255, 30, 39, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-logo {
+            font-family: 'Cinzel', serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .brand-logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--red-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--red-primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            background: radial-gradient(circle at 50% 30%, rgba(255, 30, 39, 0.08) 0%, rgba(8, 8, 10, 1) 70%);
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-avatar-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-frame {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            padding: 6px;
+            background: linear-gradient(135deg, var(--red-primary), transparent 60%, var(--red-dark));
+            box-shadow: 0 0 35px var(--red-glow);
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 25px var(--red-glow); }
+            100% { box-shadow: 0 0 45px rgba(255, 30, 39, 0.6); }
+        }
+
+        .hero-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #000;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .hero-content h1 span {
+            color: var(--red-primary);
+            text-shadow: 0 0 15px var(--red-glow);
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-bio {
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            border-left: 3px solid var(--red-primary);
+            padding-left: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--red-primary);
+            color: #fff;
+            box-shadow: 0 4px 20px var(--red-glow);
+            border: 1px solid var(--red-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #e0121b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 30, 39, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--red-primary);
+            color: var(--red-primary);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--red-primary);
+            box-shadow: 0 0 10px var(--red-primary);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--red-primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-red);
+            background-color: var(--bg-card-hover);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--red-primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--red-primary);
+            box-shadow: 0 0 30px rgba(255, 30, 39, 0.15);
+            background: linear-gradient(180deg, rgba(255, 30, 39, 0.05) 0%, var(--bg-card) 100%);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--red-primary);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--red-primary);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 1.5rem 0;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            margin-left: 5px;
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li i {
+            color: var(--red-primary);
+        }
+
+        .negotiable-banner {
+            background: linear-gradient(90deg, rgba(255, 30, 39, 0.1), rgba(139, 0, 0, 0.2));
+            border: 1px solid var(--border-red);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .negotiable-banner h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .negotiable-banner p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 30, 39, 0.05) 0%, rgba(8, 8, 10, 0) 70%);
+        }
+
+        .discord-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3.5rem 2rem;
+            border-radius: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s ease;
+        }
+
+        .discord-box:hover {
+            border-color: var(--red-primary);
+        }
+
+        .discord-icon {
+            font-size: 3.5rem;
+            color: var(--red-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .discord-box h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .discord-box p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .discord-link-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--red-primary), var(--red-dark));
+            color: #fff;
+            font-weight: 700;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 25px var(--red-glow);
+            transition: all 0.3s ease;
+        }
+
+        .discord-link-highlight:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 30, 39, 0.8);
+            color: #fff;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: #040405;
+        }
+
+        footer span {
+            color: var(--red-primary);
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-bio {
+                border-left: none;
+                border-top: 2px solid var(--red-primary);
+                padding-left: 0;
+                padding-top: 1rem;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-logo"><i class="fa-solid fa-pen-nib" style="color: var(--red-primary);"></i> Webdevraga<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="hero-avatar-wrapper">
+                <div class="avatar-frame">
+                    <img src="https://ibb.co/GfSQx5Wh" alt="Webdevraga Profile Picture" class="hero-avatar">
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Crafting Words That <span>Impact</span></h1>
+                <p class="hero-tagline">Elite Wordsmith & Master Storyteller</p>
+                <p class="hero-bio">
+                    Welcome. I am <strong>Webdevraga</strong>, a highly skilled writer dedicated to delivering powerful, engaging, and meticulously crafted content. From deep narrative creative pieces to highly structured academic essays, I transform complex ideas into captivating literature tailored precisely to your goals.
+                </p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary"><i class="fa-brands fa-discord"></i> Get In Touch</a>
+                    <a href="#pricing" class="btn btn-secondary">View Rates</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <h2>Expertise & Skills</h2>
+            <p>High-caliber writing solutions across multiple domains</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-feather-pointed skill-icon"></i>
+                <h3>Creative Writing</h3>
+                <p>Engaging storytelling, immersive world-building, narrative development, and character arcs designed to captivate readers.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-book-open skill-icon"></i>
+                <h3>Academic Essays</h3>
+                <p>Well-researched, structured, and polished essays adhering to strict tone requirements, logical flows, and formatting standard excellence.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-pen-fancy skill-icon"></i>
+                <h3>General Writing</h3>
+                <p>Versatile writing capability suited for articles, blogs, executive summaries, speeches, and persuasive text.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-file-signature skill-icon"></i>
+                <h3>Copywriting</h3>
+                <p>Persuasive content designed to inspire action, communicate core values clearly, and leave a lasting brand impression.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-wand-magic-sparkles skill-icon"></i>
+                <h3>Editing & Proofreading</h3>
+                <p>Refining existing texts for grammar, pacing, tonal balance, structural clarity, and overall readability.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-plus-minus skill-icon"></i>
+                <h3>Multiple More</h3>
+                <p>Tailored custom requests, scripts, technical summaries, and specialized written tasks built upon request.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="section-header">
+            <h2>Pricing Plans</h2>
+            <p>Flexible rates delivering top-tier quality for every project scale</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Basic Task</h3>
+                    <p>Short assignments & basic writing</p>
+                </div>
+                <div class="price">$3 <span>/ base</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Standard Turnaround</li>
+                    <li><i class="fa-solid fa-check"></i> Short Essays & Articles</li>
+                    <li><i class="fa-solid fa-check"></i> Grammar & Tone Polish</li>
+                    <li><i class="fa-solid fa-check"></i> Direct Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary">Request Service</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>Standard Tier</h3>
+                    <p>Comprehensive creative & essay work</p>
+                </div>
+                <div class="price">$5 <span>/ average</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Priority Delivery</li>
+                    <li><i class="fa-solid fa-check"></i> Full Creative Stories & Essays</li>
+                    <li><i class="fa-solid fa-check"></i> Deep Topic Research</li>
+                    <li><i class="fa-solid fa-check"></i> Revision Inclusions</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Request Service</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Premium Tier</h3>
+                    <p>Complex & large-scale assignments</p>
+                </div>
+                <div class="price">$7 <span>/ project</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fa-solid fa-check"></i> Fastest Turnaround</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced Structural Editing</li>
+                    <li><i class="fa-solid fa-check"></i> Premium Creative Writing</li>
+                    <li><i class="fa-solid fa-check"></i> Unlimited Minor Revisions</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary">Request Service</a>
+            </div>
+        </div>
+
+        <div class="negotiable-banner">
+            <h4><i class="fa-solid fa-handshake" style="color: var(--red-primary);"></i> Services & Prices are Negotiable</h4>
+            <p>Have a custom order, specific budget, or long-term project? Reach out directly and we can negotiate a custom deal tailored to your specific needs.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="discord-box">
+            <i class="fa-brands fa-discord discord-icon"></i>
+            <h3>Ready to Work Together?</h3>
+            <p>To place an order, negotiate prices, or discuss project details, get in touch with me directly on Discord.</p>
+            <a href="https://discord.gg/YOUR_DISCORD_LINK_HERE" target="_blank" class="discord-link-highlight">
+                <i class="fa-brands fa-discord"></i> Join The Discord Server
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <span>Webdevraga</span>. All Rights Reserved. Master Writing Services.</p>
+    </footer>
+
+</body>
+</html>
